@@ -9,6 +9,8 @@ export default class UsersService {
     }
 
     public show = async (id: number): Promise<Users> => this.repository.show(id);
+    
+    public list = async(): Promise<Users[]> => this.list();
 
     public store = async(data: Users): Promise<Users> => this.repository.store(data);
 
