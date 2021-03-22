@@ -1,5 +1,7 @@
 import { Connection, ConnectionOptions, createConnection } from "typeorm";
 import * as dotenv from 'dotenv';
+import Users from "./users";
+import Receipt from "./receipt";
 
 export default class Database {
     public static connection: Connection;
@@ -14,7 +16,7 @@ export default class Database {
             username: process.env.DB_USERNAME,
             password: process.env.DB_PASSWORD,
             database: process.env.DB_NAME,
-            entities: [],
+            entities: [Users, Receipt],
             logging: true,
         };
         if (process.env.DB_PASSWORD) {
