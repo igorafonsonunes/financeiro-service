@@ -9,7 +9,9 @@ export default class UsersRepository extends Repository<Users>{
         this.repository = getRepository(Users);
     }
 
-    public show = async (id: number): Promise<Users> => this.findOne(id);
+    public show = async (id: number): Promise<Users> => this.repository.findOne(id);
+
+    public list = async(): Promise<Users[]> => this.repository.find();
 
     public store = async (data: Users): Promise<Users> => this.repository.save(data);
 
