@@ -15,7 +15,8 @@ export default class UsersRepository extends Repository<Users>{
 
     public store = async (data: Users): Promise<Users> => this.repository.save(data);
 
-    public updateData = async(data: Users): Promise<UpdateResult> => this.repository.update(data.id, data);
+    public updateData = async(data: Users): Promise<UpdateResult> => 
+        this.repository.update(data.id, data);
 
     public removeData = async (id: number): Promise<DeleteResult> => this.delete(id);
 }
