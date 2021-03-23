@@ -1,4 +1,4 @@
-import { Connection, ConnectionOptions, createConnection } from "typeorm";
+import { Connection, ConnectionOptions, createConnection, getConnectionOptions } from "typeorm";
 import * as dotenv from 'dotenv';
 import Users from "./users";
 import Receipt from "./receipt";
@@ -8,7 +8,7 @@ export default class Database {
 
     public static async getConnection(): Promise<void> {
         dotenv.config();
-        const connectionOptions: ConnectionOptions = {
+        let connectionOptions: ConnectionOptions = {
             name: `default`,
             type: 'postgres',
             host: process.env.DB_HOSTNAME,
@@ -17,13 +17,18 @@ export default class Database {
             password: process.env.DB_PASSWORD,
             database: process.env.DB_NAME,
             entities: [Users, Receipt],
-            logging: true,
+            synchronize: true,
+            extra: {
+                ssl: {rejectUnauthorized: false}
+            },
+            
         };
         if (process.env.DB_PASSWORD) {
             Object.assign(connectionOptions, {
                 password: process.env.DB_PASSWORD,
             });
         }
+
         this.connection = await createConnection(connectionOptions);
     }
 

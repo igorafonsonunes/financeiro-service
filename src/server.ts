@@ -1,3 +1,5 @@
 import App from './app';
 
-new App().server.listen(3000);
+const app = new App();
+app.run();
+app.server.listen(3000);
