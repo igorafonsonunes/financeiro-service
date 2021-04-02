@@ -24,7 +24,6 @@ export default class App {
     public run = async(): Promise<void> =>{
         await Database.getConnection();
         this.router();
-        await Database.closeConnection();
     }
 
 
