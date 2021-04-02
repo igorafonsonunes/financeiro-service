@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "serve": "nodemon src/server.ts",
-    "start": "ts-node src/server.ts",
+    "start": "tsc && node dist/server.js",
     "swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json"
   },
   "repository": {
