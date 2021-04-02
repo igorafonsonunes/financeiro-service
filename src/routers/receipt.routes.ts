@@ -13,7 +13,7 @@ export default class ReceiptRoutes{
         router.use('/receipt', router);
         router.post('/', this.controller.store);
         router.put('/', this.controller.update);
-        router.get('/:id', this.controller.listByIdUser)
+        router.get('/users/:id', this.controller.listByIdUser)
         router.get('/:id', this.controller.show);
         router.delete('/:id', this.controller.delete);
         return router;
