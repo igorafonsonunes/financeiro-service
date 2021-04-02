@@ -15,6 +15,7 @@ export default class App {
 
     public middleware = () => {
         this.server.use(Express.json());
+        this.server.use(Cors());
     };
 
     public router = () => {
@@ -27,4 +28,8 @@ export default class App {
     }
 
 
+}
+
+function Cors(): any {
+    throw new Error('Function not implemented.');
 }
