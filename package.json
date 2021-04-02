@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "serve": "nodemon src/server.ts",
-    "start": "node dist/server.js",
-    "swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json",
-    "build": "tsc"
+    "start": "tsc && node dist/server.js",
+    "swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json"
   },
   "repository": {
     "type": "git",
