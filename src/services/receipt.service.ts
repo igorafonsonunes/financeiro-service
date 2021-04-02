@@ -24,7 +24,7 @@ export default class ReceiptService {
     public removeData = async (id: number): Promise<string> => {
         const obj = await this.show(id);
         if (obj) {
-            await this.repository.delete(obj.id);
+            await this.repository.removeData(obj.id);
             return 'receipt deleted.';
         }
         return 'receipt not found.';
