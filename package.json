@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "serve": "nodemon src/server.ts",
+    "start": "ts-node src/server.ts",
     "swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json",
     "build": "tsc"
   },
