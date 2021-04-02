@@ -16,7 +16,7 @@ export default class ReceiptService {
     public store = async (data: Receipt): Promise<Receipt> => this.repository.store(data);
 
     public updateData = async (data: Receipt): Promise<any> => {
-        const obj = await this.repository.update(data.id, data);
+        const obj = await this.repository.updateData(data);
         console.log(obj);
         return obj;
     }
