@@ -1,6 +1,7 @@
 import Express from 'express';
 import Database from './models';
 import Routes from './routes';
+import Cors from 'cors';
 
 export default class App {
     public server: any;
@@ -28,8 +29,4 @@ export default class App {
     }
 
 
-}
-
-function Cors(): any {
-    throw new Error('Function not implemented.');
 }
