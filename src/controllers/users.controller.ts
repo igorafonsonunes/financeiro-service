@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import Database from "../models";
 import Users from "../models/users";
 import UsersService from "../services/users.service";
 
@@ -10,25 +9,23 @@ export default class UsersController{
         this.service = new UsersService();
     }
 
-    public show = async(req:Request, res: Response): Promise<Users> => {
+    public show = async(req:Request, res: Response): Promise<Response> => {
         const obj = await this.service.show((req.params.id as unknown) as number);
-        return obj;
+        return res.status(200).send(obj);
     };
 
-    public store = async(req:Request, res: Response): Promise<Users> => {
+    public store = async(req:Request, res: Response): Promise<Response> => {
         const obj = await this.service.store(req.body as  Users);
-        return obj;
+        return res.status(200).send(obj);
     };
 
-
-    public update = async(req:Request, res: Response): Promise<Users> => {
+    public update = async(req:Request, res: Response): Promise<Response> => {
         const obj = await this.service.updateData(req.body as  Users);
-        return obj;
+        return res.status(200).send(obj);
     };
 
-
-    public delete = async(req:Request, res: Response): Promise<string> => {
+    public delete = async(req:Request, res: Response): Promise<Response> => {
         const obj = await this.service.removeData((req.params.id as unknown) as number);
-        return obj;
+        return res.status(200).send(obj);
     };
 }

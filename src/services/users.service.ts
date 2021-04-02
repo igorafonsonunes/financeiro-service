@@ -9,23 +9,21 @@ export default class UsersService {
     }
 
     public show = async (id: number): Promise<Users> => this.repository.show(id);
-    
-    public list = async(): Promise<Users[]> => this.list();
 
     public store = async(data: Users): Promise<Users> => this.repository.store(data);
 
     public removeData = async (id: number): Promise<string> => {
         const obj = await this.show(id);
         if (obj) {
-            await this.repository.delete(obj.id);
+            await this.repository.removeData(obj.id);
             return 'user deleted';
         }
         return 'user not found.'
     }
 
-    public updateData = async(data: Users): Promise<any> =>{
-        const obj = await this.repository.updateData(data);
-        console.log(obj);
+    public updateData = async(data: Users): Promise<Users> =>{
+        await this.repository.updateData(data);
+        const obj = await this.show(data.id);
         return obj;
     }
 }
