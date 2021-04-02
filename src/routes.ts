@@ -1,4 +1,5 @@
 import {Router} from 'express';
+import ReceiptRoutes from './routers/receipt.routes';
 import UsersRoutes from './routers/users.routes';
 
 export default class Routes{
@@ -10,6 +11,7 @@ export default class Routes{
 
     public init = (): Router =>{
         this.router.use(new UsersRoutes().listRoutes());
+        this.router.use(new ReceiptRoutes().listRoutes());
         return this.router;
     }
 }
